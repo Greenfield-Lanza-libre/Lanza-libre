@@ -36,7 +36,7 @@ app.get("/", (req, res) => {
 // set port, listen for requests
 require("./routes/lanza.routes")(app);
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 5000;
 // app.use('/api', router);
 
 app.listen(PORT, () => {
