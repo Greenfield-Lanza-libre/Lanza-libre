@@ -7,9 +7,13 @@ module.exports = app => {
 
         // Retrieve all profile
         router.get("/user/:userId", profile.findOne);
+        router.get("/me/:userId", profile.findOne);
+
         router.post("/post", profile.create);
-        router.get("/:profession",profile.findByProfession)
-        router.get("/:id",profile.findOne)
+        router.post("/experience", profile.addexperience)
+        router.post("/education", profile.addeducation);
+        router.delete("/delete/experience", profile.deleteexperience)
+        router.delete("/delete/:id", profile.deleteprofile)
   
         app.use('/api/profile', router);
 

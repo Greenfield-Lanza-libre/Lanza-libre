@@ -3,6 +3,9 @@ module.exports = (sequelize, Sequelize) => {
       user: {
         type: Sequelize.STRING
       },
+      userId: {
+          type: Sequelize.INTEGER
+      },
       company: {
         type: Sequelize.INTEGER
       },

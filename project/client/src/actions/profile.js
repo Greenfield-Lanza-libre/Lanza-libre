@@ -12,10 +12,10 @@ import {
 } from './types';
 
 //get current user's profile
-export const getCurrentProfile = () => async (dispatch) => {
+export const getCurrentProfile = (userId) => async (dispatch) => {
 	try {
 		const res = 
-		// await axios.get('/api/profile/me');
+		await axios.get(`/api/profile/me/${userId}`);
 
 		dispatch({
 			type: GET_PROFILE,
@@ -94,7 +94,7 @@ export const createProfile = (formData, history, edit = false) => async (
 			},
 		};
 
-		const res = await axios.post('/api/profile', formData, config);
+		const res = await axios.post('/api/profile/post', formData, config);
 
 		dispatch({
 			type: GET_PROFILE,
@@ -163,7 +163,7 @@ export const addEducation = (formData, history) => async (dispatch) => {
 			},
 		};
 
-		const res = await axios.put('/api/profile/education', formData, config);
+		const res = await axios.post('/api/profile/education', formData, config);
 
 		dispatch({
 			type: UPDATE_PROFILE,
@@ -226,10 +226,10 @@ export const deleteEducation = (id) => async (dispatch) => {
 };
 
 //delete account and profile
-export const deleteAccount = () => async (dispatch) => {
+export const deleteAccount = (id) => async (dispatch) => {
 	if (window.confirm('Are you sure? This action is permanent')) {
 		try {
-			await axios.delete('/api/profile/');
+			await axios.delete(`/api/profile//delete/${id}`);
 
 			dispatch({
 				type: CLEAR_PROFILE,
