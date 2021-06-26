@@ -11,7 +11,18 @@ module.exports = (sequelize, Sequelize) => {
       },
       available:{
         type: Sequelize.BOOLEAN
-      }
+      },
+  
+date : {
+  type: Sequelize.DATE
+},
+avatar: {
+  type: Sequelize.STRING
+},
+likes : { 
+  type : Sequelize.INTEGER
+}
+ 
 
       
     });

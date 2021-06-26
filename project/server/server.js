@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const db = require("./models");
+const path = require ('path');
 
 // const router = require("./routes/lanza.routes");
 
@@ -8,6 +9,10 @@ const db = require("./models");
 
 
 const app = express();
+
+app.use(express.static(path.join(__dirname, '..','client', 'build')));
+
+
 
 
 db.sequelize.sync({ force: true }).then(() => {
@@ -34,10 +39,11 @@ app.get("/", (req, res) => {
 
 
 // set port, listen for requests
-require("./routes/lanza.routes")(app);
+require("./routes/posts.routes")(app);
+require("./routes/users.routes")(app);
 
 const PORT = process.env.PORT || 5000;
-// app.use('/api', router);
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);

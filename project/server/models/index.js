@@ -20,5 +20,11 @@ db.sequelize = sequelize;
 
 db.posts = require("./post.model.js")(sequelize, Sequelize);
 db.user = require("./user.model.js")(sequelize, Sequelize);
-
+db.comments = require("./comments.model.js")(sequelize, Sequelize);
+db.likes = require("./likes.model.js")(sequelize, Sequelize);
+db.skills = require("./skills.model.js")(sequelize, Sequelize);
+db.profiles = require("./profile.model.js")(sequelize, Sequelize);
+db.experiences = require("./experience.model.js")(sequelize, Sequelize);
+db.education = require("./education.model.js")(sequelize, Sequelize);
+  
 module.exports = db;
